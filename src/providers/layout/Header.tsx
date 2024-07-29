@@ -4,14 +4,15 @@ import { message } from "antd";
 import { LogOut, User2, Video } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import AdminSidebar from "./AdminSidebar";
 
 function Header({ loggedInUser }: { loggedInUser: UsersI }) {
-  //   const [showAdminSidebar, setShowAdminSidebar] = React.useState(false);
+  const [showAdminSidebar, setShowAdminSidebar] = React.useState(false);
   const { signOut } = useAuth();
   const router = useRouter();
   const onUserClick = () => {
     if (loggedInUser.isAdmin) {
-      //   setShowAdminSidebar(!showAdminSidebar);
+      setShowAdminSidebar(!showAdminSidebar);
     } else {
       router.push("/profile");
     }
@@ -49,6 +50,12 @@ function Header({ loggedInUser }: { loggedInUser: UsersI }) {
           <LogOut className="ml-10" onClick={onLogout} />
         )}
       </div>
+      {showAdminSidebar && (
+        <AdminSidebar
+          showAdminSidebar={showAdminSidebar}
+          setShowAdminSidebar={setShowAdminSidebar}
+        />
+      )}
     </div>
   );
 }
