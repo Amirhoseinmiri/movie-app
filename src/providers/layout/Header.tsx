@@ -34,7 +34,7 @@ function Header({ loggedInUser }: { loggedInUser: UsersI }) {
         className="flex font-bold gap-2 text-2xl items-center cursor-pointer"
         onClick={() => router.push("/")}
       >
-        SHEY <Video className="text-orange-500" /> OTT
+        AMIR <Video className="text-orange-500" /> OTT
       </h1>
 
       <div

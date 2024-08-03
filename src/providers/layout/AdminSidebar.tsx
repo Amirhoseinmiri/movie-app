@@ -30,7 +30,7 @@ const AdminSidebar = ({
       name: "Shows",
       icon: <Video size={iconSize} />,
       onClick: () => router.push("/admin/shows"),
-      isActive: pathname === "/admin/shows",
+      isActive: pathname.includes("/admin/shows"),
     },
     {
       name: "Subscriptions",

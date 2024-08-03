@@ -1,7 +1,9 @@
 import React from "react";
 import { ConfigProvider } from "antd";
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+function ThemeProvider({ children }: { children: React.ReactNode }) {
+  // use token if u want to update any property in global level
+  // use components if u want to update any property in component level
   return (
     <ConfigProvider
       theme={{
@@ -11,11 +13,17 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         },
         components: {
           Button: {
-            controlHeight: 50,
+            controlHeight: 42,
             controlOutline: "none",
+            colorPrimaryBorder: "#000",
+            colorBorder: "#000",
           },
           Input: {
-            controlHeight: 50,
+            controlHeight: 42,
+            controlOutline: "none",
+          },
+          Select: {
+            controlHeight: 42,
             controlOutline: "none",
           },
         },
@@ -24,6 +32,6 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </ConfigProvider>
   );
-};
+}
 
 export default ThemeProvider;
